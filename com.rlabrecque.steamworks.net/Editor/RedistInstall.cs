@@ -16,7 +16,7 @@ public class RedistInstall {
 		if (EditorUserBuildSettings.selectedBuildTargetGroup != BuildTargetGroup.Standalone) {
 			return;
 		}
-		WriteSteamAppIdTxtFile();
+		// WriteSteamAppIdTxtFile(); <- Commented out since we have merged https://github.com/rlabrecque/Steamworks.NET/pull/461
 		AddDefineSymbols();
 		CheckForOldDlls();
 	}
