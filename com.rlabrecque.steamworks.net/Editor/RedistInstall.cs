@@ -16,12 +16,9 @@ public class RedistInstall {
 		if (EditorUserBuildSettings.selectedBuildTargetGroup != BuildTargetGroup.Standalone) {
 			return;
 		}
-		// Delay calls to fix compile issues with custom build profiles in Unity 6.00+
-		EditorApplication.delayCall += () => {
-			WriteSteamAppIdTxtFile();
-			AddDefineSymbols();
-			CheckForOldDlls();
-		};
+		WriteSteamAppIdTxtFile();
+		AddDefineSymbols();
+		CheckForOldDlls();
 	}
 
 	static void WriteSteamAppIdTxtFile() {
@@ -63,7 +60,7 @@ public class RedistInstall {
 			Debug.LogError("[Steamworks.NET] Please delete the old version of 'steam_api64.dll' in your project root before continuing.");
 		}
 	}
-
+ 
     static void AddDefineSymbols()
     {
         string currentDefines;
@@ -73,7 +70,7 @@ public class RedistInstall {
         currentDefines = PlayerSettings.GetScriptingDefineSymbols(NamedBuildTarget.FromBuildTargetGroup(EditorUserBuildSettings.selectedBuildTargetGroup));
 #else
 		currentDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
-
+		
 #endif
         defines = new HashSet<string>(currentDefines.Split(';'))
         {
