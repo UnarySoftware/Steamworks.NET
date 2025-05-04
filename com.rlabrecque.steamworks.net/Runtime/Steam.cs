@@ -26,11 +26,11 @@ namespace Steamworks {
 		public static bool Init(AppId_t appIdT) {
 			string appId = appIdT.ToString();
 
-			Environment.SetEnvironmentVariable("SteamAppId", appId);
-			Environment.SetEnvironmentVariable("SteamOverlayGameId", appId);
-			Environment.SetEnvironmentVariable("SteamGameId", appId);
+			System.Environment.SetEnvironmentVariable("SteamAppId", appId);
+			System.Environment.SetEnvironmentVariable("SteamOverlayGameId", appId);
+			System.Environment.SetEnvironmentVariable("SteamGameId", appId);
 
-			return this.Init();
+			return SteamAPI.Init();
 		}
 
 		// Initializing the Steamworks SDK
